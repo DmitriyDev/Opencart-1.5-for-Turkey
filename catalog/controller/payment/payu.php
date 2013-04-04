@@ -40,7 +40,7 @@ class ControllerPaymentPayU extends Controller {
 			$pname[] = $v['name'];
 			$pinfo[] = $v['model'];
 			$qty[] = $v['quantity'];
-			$price[] = round($v['price'], 2);
+			$price[] = $v['price'];
 			$vat[] = $this->config->get('payu_vat'); 
 			$shipp -= $v['price'] * $v['quantity'];
 			$ptype[] = "GROSS";
@@ -64,7 +64,7 @@ class ControllerPaymentPayU extends Controller {
  					#'PAY_METHOD' => "CCVISAMC",
 					#'INSTALLMENT_OPTIONS' => "2,3,7,10,12"
 				  );
-		if ( $this->config->get('payu_backref') != "" ) $forSend['BACK_REF'] = $this->config->get('payu_backref');
+		##if ( $this->config->get('payu_backref') != "" ) $forSend['BACK_REF'] = $this->config->get('payu_backref');
 
 		foreach ($pref as $k => $v)
 		{
