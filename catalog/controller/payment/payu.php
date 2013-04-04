@@ -40,7 +40,7 @@ class ControllerPaymentPayU extends Controller {
 			$pname[] = $v['name'];
 			$pinfo[] = $v['model'];
 			$qty[] = $v['quantity'];
-			$price[] = $v['price'];
+			$price[] = round($v['price'], 2);
 			$vat[] = $this->config->get('payu_vat'); 
 			$shipp -= $v['price'] * $v['quantity'];
 			$ptype[] = "GROSS";
