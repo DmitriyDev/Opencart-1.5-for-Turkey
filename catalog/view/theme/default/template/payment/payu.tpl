@@ -1,3 +1,1 @@
-<?php echo $pay; 
-echo phpinfo(); 
-?>
+<?php echo $pay; ?>
