@@ -58,6 +58,10 @@ class ControllerPaymentPayU extends Controller {
 					'PRICES_CURRENCY' => $this->config->get('payu_currency'),  # Currency
 					'LANGUAGE' => $this->config->get('payu_language'),
 					'ORDER_PRICE_TYPE' => $ptype,
+					'DESTINATION_CITY' => "Istanbul",
+ 					'DESTINATION_STATE' => "Istanbul",
+ 					'DESTINATION_COUNTRY' => "TR",
+ 					'PAY_METHOD' => "CCVISAMC",
 					'INSTALLMENT_OPTIONS' => ""
 				  );
 		if ( $this->config->get('payu_backref') != "" ) $forSend['BACK_REF'] = $this->config->get('payu_backref');
@@ -120,8 +124,8 @@ class PayU
 	private $data = array(), $dataArr = array(), $answer = ""; 
 	private $LUcell = array( 'MERCHANT' => 1, 'ORDER_REF' => 0, 'ORDER_DATE' => 1, 'ORDER_PNAME' => 1, 'ORDER_PGROUP' => 0,
 							'ORDER_PCODE' => 1, 'ORDER_PINFO' => 0, 'ORDER_PRICE' => 1, 'ORDER_QTY' => 1, 'ORDER_VAT' => 1, 
-							'ORDER_SHIPPING' => 1, 'PRICES_CURRENCY' => 1, 'PAY_METHOD' => 0, 'ORDER_PRICE_TYPE' => 0, 
-							'INSTALLMENT_OPTIONS' => 0);
+							'ORDER_SHIPPING' => 1, 'PRICES_CURRENCY' => 1, 'DISCOUNT' => 0, 'DESTINATION_CITY' => 0, 'DESTINATION_STATE' => 0, 'DESTINATION_COUNTRY' => 0, 
+							'PAY_METHOD' => 0, 'ORDER_PRICE_TYPE' => 0,	"INSTALLMENT_OPTIONS" => 1);
 
 	private $IPNcell = array( "IPN_PID", "IPN_PNAME", "IPN_DATE", "ORDERSTATUS" );
 
