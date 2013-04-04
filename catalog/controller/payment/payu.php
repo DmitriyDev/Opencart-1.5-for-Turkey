@@ -21,7 +21,7 @@ class ControllerPaymentPayU extends Controller {
 					  );
 		$nopref = array( "EMAIL" => "email", 
 					  	 "PHONE" => "telephone", 
-					  	 "FAX" => "fax", );
+					  	 /*"FAX" => "fax", */);
 
 
 				
@@ -70,8 +70,8 @@ class ControllerPaymentPayU extends Controller {
 		{
 			$bill = "payment_".$v;
 			$deliv = "shipping_".$k;
-			if (  isset( $order_info[$bill] ) ) $forSend["BILL_".$k] = $order_info[$bill];
-			if (  isset( $order_info[$deliv] ) ) $forSend["DELIVERY_".$k] = $order_info[$deliv];
+			if (  isset( $order_info[$bill] ) && $order_info[$bill] !== "") $forSend["BILL_".$k] = $order_info[$bill];
+			if (  isset( $order_info[$deliv] ) &&  $order_info[$deliv] !== "" ) $forSend["DELIVERY_".$k] = $order_info[$deliv];
 		}
 
 		foreach ($nopref as $k => $v) 
