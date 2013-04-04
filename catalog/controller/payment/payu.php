@@ -180,7 +180,7 @@ class PayU
 #--------------------------------------------------------
 	private function convString($string) 
 	{	
-		return strlen($string, '8bit') . $string;
+		return strlen($string) . $string;
 		return mb_strlen($string, '8bit') . $string;
 	}
 
