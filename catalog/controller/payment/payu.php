@@ -167,30 +167,15 @@ class PayU
 		return $this;
 	}
 
-
-	function generateHmac($key, $data) {
-        $b = 64; // byte length for md5
-        if (strlen($key) > $b) {
-            $key = pack("H*", md5($key));
-        }
-        $key = str_pad($key, $b, chr(0x00));
-        $ipad = str_pad('', $b, chr(0x36));
-        $opad = str_pad('', $b, chr(0x5c));
-        $k_ipad = $key ^ $ipad;
-        $k_opad = $key ^ $opad;
-        return md5($k_opad . pack("H*", md5($k_ipad . $data)));
-    }
-
 #--------------------------------------------------------
 #	Generate HASH
 #--------------------------------------------------------
 	function Signature( $data = null ) 
 	{		
-		
 		$this->substr  = $str = "";
 		foreach ( $data as $v ) $str .= $this->convData( $v );
-		echo "\n<br>\n".$this->substr."\n<br>\n".$str."\n<br>\n";
-		return  $this->generateHmac(self::$key, $str); #hash_hmac("md5",$str, self::$key);
+		echo "\n<br>\n".$str."\n<br>\n";
+		return hash_hmac("md5",$str, self::$key);
 	}
 
 #--------------------------------------------------------
@@ -199,6 +184,7 @@ class PayU
 #--------------------------------------------------------
 	private function convString($string) 
 	{	
+		
 		$this->substr .=  mb_strlen($string, '8bit') . $string;
 		return strlen($string) . $string;
 		return mb_strlen($string, '8bit') . $string;
@@ -255,7 +241,7 @@ class PayU
 #-----------------------------
 	private function genereteForm( $data )
 	{	
-		$form = '<form method="post" action="'.$this->luUrl.'" accept-charset="utf-8">';
+		$form = '<form method="post" action="'.$this->luUrl.'" >';
 		foreach ( $data as $k => $v ) $form .= $this->makeString( $k, $v );
 		return $form . $this->button."</form>";
 	}	
