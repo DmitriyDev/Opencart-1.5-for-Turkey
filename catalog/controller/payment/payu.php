@@ -169,8 +169,10 @@ class PayU
 #--------------------------------------------------------
 	function Signature( $data = null ) 
 	{		
-		$str = "";
+		
+		$this->substr  = $str = "";
 		foreach ( $data as $v ) $str .= $this->convData( $v );
+		echo "\n<br>\n".$this->substr."\n<br>\n".$str."\n<br>\n";
 		return hash_hmac("md5",$str, self::$key);
 	}
 
@@ -180,6 +182,7 @@ class PayU
 #--------------------------------------------------------
 	private function convString($string) 
 	{	
+		$this->substr .=  mb_strlen($string, '8bit') . $string;
 		return strlen($string) . $string;
 		return mb_strlen($string, '8bit') . $string;
 	}
