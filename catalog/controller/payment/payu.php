@@ -17,8 +17,8 @@ class ControllerPaymentPayU extends Controller {
 					  "ADDRESS" => "address_1", 
 					  "ADDRESS2" => "address_2", 
 					  "ZIPCODE" => "postcode", 
-					  "CITY" => "city", 
-					);
+					  "CITY" => "city",
+					  );
 		$nopref = array( "EMAIL" => "email", 
 					  	 "PHONE" => "telephone", 
 					  	 "FAX" => "fax", );
@@ -43,6 +43,7 @@ class ControllerPaymentPayU extends Controller {
 			$price[] = $v['price'];
 			$vat[] = $this->config->get('payu_vat'); 
 			$shipp -= $v['price'] * $v['quantity'];
+			$ptype[] = "GROSS";
 		}
 
 		$forSend = array (
@@ -56,7 +57,7 @@ class ControllerPaymentPayU extends Controller {
 					'ORDER_SHIPPING' => $shipp, 
 					'PRICES_CURRENCY' => $this->config->get('payu_currency'),  # Currency
 					'LANGUAGE' => $this->config->get('payu_language'),
-#					'ORDER_PRICE_TYPE' => array()
+					'ORDER_PRICE_TYPE' => $ptype,
 					'INSTALLMENT_OPTIONS' => ""
 				  );
 		if ( $this->config->get('payu_backref') != "" ) $forSend['BACK_REF'] = $this->config->get('payu_backref');
@@ -120,7 +121,7 @@ class PayU
 	private $LUcell = array( 'MERCHANT' => 1, 'ORDER_REF' => 0, 'ORDER_DATE' => 1, 'ORDER_PNAME' => 1, 'ORDER_PGROUP' => 0,
 							'ORDER_PCODE' => 1, 'ORDER_PINFO' => 0, 'ORDER_PRICE' => 1, 'ORDER_QTY' => 1, 'ORDER_VAT' => 1, 
 							'ORDER_SHIPPING' => 1, 'PRICES_CURRENCY' => 1, 'PAY_METHOD' => 0, 'ORDER_PRICE_TYPE' => 0, 
-							'INSTALLMENT_OPTIONS' => 1);
+							'INSTALLMENT_OPTIONS' => 0);
 
 	private $IPNcell = array( "IPN_PID", "IPN_PNAME", "IPN_DATE", "ORDERSTATUS" );
 
