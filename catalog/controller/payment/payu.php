@@ -24,7 +24,7 @@ class ControllerPaymentPayU extends Controller {
 					  );
 		$nopref = array( "EMAIL" => "email", 
 					  	 "PHONE" => "telephone", 
-					  	 /*"FAX" => "fax", */);
+					  	 "FAX" => "fax", );
 
 
 				
@@ -67,7 +67,7 @@ class ControllerPaymentPayU extends Controller {
  					#'PAY_METHOD' => "CCVISAMC",
 					#'INSTALLMENT_OPTIONS' => "2,3,7,10,12"
 				  );
-		##if ( $this->config->get('payu_backref') != "" ) $forSend['BACK_REF'] = $this->config->get('payu_backref');
+		if ( $this->config->get('payu_backref') != "" ) $forSend['BACK_REF'] = $this->config->get('payu_backref');
 
 		foreach ($pref as $k => $v)
 		{
@@ -153,7 +153,7 @@ class PayU
 	{
 		if ( !isset( $opt['merchant'] ) || !isset( $opt['secretkey'] )) die("No params");
 		self::$merchant = $opt['merchant'];
-		self::$key = $opt['secretkey'];
+		self::$key = htmlspecialchars_decode( $opt['secretkey'] );
 		unset( $opt['merchant'], $opt['secretkey'] );
 		if ( count($opt) === 0 ) return $this;
 		foreach ( $opt as $k => $v) $this->$k = $v;
@@ -172,9 +172,7 @@ class PayU
 #--------------------------------------------------------
 	function Signature( $data = null ) 
 	{		
-		$this->substr  = $str = "";
 		foreach ( $data as $v ) $str .= $this->convData( $v );
-		echo "\n<br>\n".$str."\n<br>\n";
 		return hash_hmac("md5",$str, self::$key);
 	}
 
@@ -184,9 +182,6 @@ class PayU
 #--------------------------------------------------------
 	private function convString($string) 
 	{	
-		
-		$this->substr .=  mb_strlen($string, '8bit') . $string;
-		return strlen($string) . $string;
 		return mb_strlen($string, '8bit') . $string;
 	}
 
