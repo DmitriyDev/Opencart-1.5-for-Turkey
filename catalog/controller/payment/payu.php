@@ -1,5 +1,11 @@
 <?php
-
+/*
+	Module for Opencart 1.5.x
+	Author : Dmitriy Dubinin
+	Dnepropetrovsk
+	05 apr 2013
+*/
+	
 class ControllerPaymentPayU extends Controller {
 	protected function index() {
 
@@ -37,14 +43,17 @@ class ControllerPaymentPayU extends Controller {
 		$shipp = $order_info['total'];
 		foreach ( $goods as $v )
 		{
-			$pid[] = $v['product_id'];
-			$pname[] = $v['name'];
-			$pinfo[] = $v['model'];
-			$qty[] = $v['quantity'];
-			$price[] = round($v['price']);
-			$vat[] = $this->config->get('payu_vat'); 
-			$shipp -= $v['price'] * $v['quantity'];
-			$ptype[] = "GROSS";
+		 	$amount = $this->currency->convert( $v['price'], $order_info['currency_code'], $this->config->get('payu_currency') );
+            if ($amount == 0) echo "<b style='color:#ae0000;'>Currency ".$this->config->get('payu_currency')." are not exists in your shop</b>";
+
+            $pid[] = $v['product_id'];
+            $pname[] = $v['name'];
+            $pinfo[] = $v['model'];
+            $qty[] = $v['quantity'];
+            $price[] = $amount; #$v['price'];
+            $vat[] = $this->config->get('payu_vat'); 
+            $shipp -= $v['price'] * $v['quantity'];
+            $ptype[] = "GROSS";
 		}
 
 		$forSend = array (
@@ -55,8 +64,8 @@ class ControllerPaymentPayU extends Controller {
 					'ORDER_PRICE' => $price,
 					'ORDER_QTY' => $qty,
 					'ORDER_VAT' => $vat,
-					'ORDER_SHIPPING' => $shipp, 
-					'PRICES_CURRENCY' => $this->config->get('payu_currency'),  # Currency
+					'ORDER_SHIPPING' => $amount = $this->currency->convert( $shipp, $order_info['currency_code'], $this->config->get('payu_currency') ), 
+                    'PRICES_CURRENCY' => $this->config->get('payu_currency'),
 					'LANGUAGE' => $this->config->get('payu_language'),
 				  );
 		if ( $this->config->get('payu_backref') != "" ) $forSend['BACK_REF'] = $this->config->get('payu_backref');
