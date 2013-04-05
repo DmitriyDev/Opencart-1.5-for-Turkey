@@ -18,6 +18,7 @@ IPN : http://www.domainadınız.com/index.php?route=payment/payu/callback
 3.2 Düzenle butonuna basın 
 3.3 İceriği doldurun.Yardım almak için screen shotu kullanabilirsiniz.
 
+Mağazanızın döviz birimini doğru ayarladığınızdan emin olun zira eğer USD yada EUR olarak kullanıyorsanız PayU ödemeyi TRY (TL) sına çevirerek alacaktır.Arada döviz kurundan kaynaklı zarara uğrayabilirsiniz.
 
 ![Screenshot][1]
 
