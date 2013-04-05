@@ -16,9 +16,7 @@ IPN : http://{domainadınız}/index.php?route=payment/payu/callback
 3. PayU Methodunu bulun
 - Kur butonuna basın
 - Düzenle butonuna basın 
-
-
-İceriği doldurun.Yardım almak için screen shotu kullanabilirsiniz.
+- İceriği doldurun.Yardım almak için screen shotu kullanabilirsiniz.
 
 Mağazanızın döviz birimini doğru ayarladığınızdan emin olun zira eğer USD yada EUR olarak kullanıyorsanız PayU ödemeyi TRY (TL) sına çevirerek alacaktır.Arada döviz kurundan kaynaklı zarara uğrayabilirsiniz.
 
@@ -38,11 +36,11 @@ Installation
 
 1. Copy folders 'admin' and 'catalog' to main folder of your site
 2. Enter to admin panel
-2.1 Choose  "Extentions" -> "Payment"
+- Choose  "Extentions" -> "Payment"
 3. Find a method "PayU" 
-3.1 Push the button  "Install" 
-3.2 Push the button "Change"
-3.3 Enter your personal settings
+- Push the button  "Install" 
+- Push the button "Change"
+- Enter your personal settings
 Exemple of settings you can watching on screenshot
 
 
