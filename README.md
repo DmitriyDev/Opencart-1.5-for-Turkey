@@ -6,16 +6,17 @@
 
 (1.5.х Versiyonları için test edilmiştir )
 
-IPN : http://www.domainadınız.com/index.php?route=payment/payu/callback
+IPN : http://{domainadınız}/index.php?route=payment/payu/callback
 
 #Kurulumu
 ------------
 1. Klasörün içinde ki 'admin' ve 'catalog' dosyalarını hostunuza yollayın.Dosyalarınız hiç bir değişiklik yapmayacaktır.
-2. Admin paneline girin.
-2.1 Eklentilerden -> ödeme yöntemlerini seçin.
-3. PayU Methodunu bulun.
-3.1 Kur butonuna basın.
-3.2 Düzenle butonuna basın.
+2. Admin paneline girin
+- Eklentilerden -> ödeme yöntemlerini seçin
+3. PayU Methodunu bulun
+- Kur butonuna basın
+- Düzenle butonuna basın 
+
 
 İceriği doldurun.Yardım almak için screen shotu kullanabilirsiniz.
 
