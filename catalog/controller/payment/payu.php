@@ -1,6 +1,4 @@
 <?php
-ini_set("display_errors", true);
-error_reporting(E_ALL);
 
 class ControllerPaymentPayU extends Controller {
 	protected function index() {
@@ -60,12 +58,6 @@ class ControllerPaymentPayU extends Controller {
 					'ORDER_SHIPPING' => $shipp, 
 					'PRICES_CURRENCY' => $this->config->get('payu_currency'),  # Currency
 					'LANGUAGE' => $this->config->get('payu_language'),
-					#'ORDER_PRICE_TYPE' => $ptype,
-					#'DESTINATION_CITY' => "Istanbul",
- 					#'DESTINATION_STATE' => "Istanbul",
- 					#'DESTINATION_COUNTRY' => "TR",
- 					#'PAY_METHOD' => "CCVISAMC",
-					#'INSTALLMENT_OPTIONS' => "2,3,7,10,12"
 				  );
 		if ( $this->config->get('payu_backref') != "" ) $forSend['BACK_REF'] = $this->config->get('payu_backref');
 
@@ -92,7 +84,7 @@ class ControllerPaymentPayU extends Controller {
 		} else {
 			$this->template = 'default/template/payment/payu.tpl';
 		}	
-	/**/	
+	
 		$this->render();
 	}
 
