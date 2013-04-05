@@ -172,6 +172,7 @@ class PayU
 #--------------------------------------------------------
 	function Signature( $data = null ) 
 	{		
+		$str = "";
 		foreach ( $data as $v ) $str .= $this->convData( $v );
 		return hash_hmac("md5",$str, self::$key);
 	}
