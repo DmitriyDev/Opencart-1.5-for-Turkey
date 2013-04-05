@@ -43,5 +43,5 @@ Installation
 Exemple of settings you can watching on screenshot
 
 
-[1]: https://raw.github.com/PayUUA/Opencart-1.5/master/screenshot.png
+[1]: https://raw.github.com/PayUDevCenter/Opencart-1.5-for-Turkey/master/screenshot.png
 
