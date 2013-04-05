@@ -37,8 +37,8 @@
                  if ( $payu_debug == 0 ) $st0 = 'selected="selected"';
                   else $st1 = 'selected="selected"';
               ?>
-                <option value="1" <?= $st1 ?> ><?php echo $entry_debug_on; ?></option>
-                <option value="0" <?= $st0 ?> ><?php echo $entry_debug_off; ?></option>
+                <option value="1" <?= @$st1 ?> ><?php echo $entry_debug_on; ?></option>
+                <option value="0" <?= @$st0 ?> ><?php echo $entry_debug_off; ?></option>
               </select></td>
           </tr>
           <tr>
@@ -87,8 +87,8 @@
                   else $st1 = 'selected="selected"';
                 ?>
 
-                <option value="1" <?= $st1 ?> ><?php echo $text_enabled; ?></option>
-                <option value="0" <?= $st0 ?> ><?php echo $text_disabled; ?></option>
+                <option value="1" <?= @$st1 ?> ><?php echo $text_enabled; ?></option>
+                <option value="0" <?= @$st0 ?> ><?php echo $text_disabled; ?></option>
 
               </select></td>
           </tr>
