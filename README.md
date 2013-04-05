@@ -11,12 +11,13 @@ IPN : http://www.domainadınız.com/index.php?route=payment/payu/callback
 #Kurulumu
 ------------
 1. Klasörün içinde ki 'admin' ve 'catalog' dosyalarını hostunuza yollayın.Dosyalarınız hiç bir değişiklik yapmayacaktır.
-2. Admin paneline girin
-2.1 Eklentilerden -> ödeme yöntemlerini seçin
-3. PayU Methodunu bulun
-3.1 Kur butonuna basın
-3.2 Düzenle butonuna basın 
-3.3 İceriği doldurun.Yardım almak için screen shotu kullanabilirsiniz.
+2. Admin paneline girin.
+2.1 Eklentilerden -> ödeme yöntemlerini seçin.
+3. PayU Methodunu bulun.
+3.1 Kur butonuna basın.
+3.2 Düzenle butonuna basın.
+
+İceriği doldurun.Yardım almak için screen shotu kullanabilirsiniz.
 
 Mağazanızın döviz birimini doğru ayarladığınızdan emin olun zira eğer USD yada EUR olarak kullanıyorsanız PayU ödemeyi TRY (TL) sına çevirerek alacaktır.Arada döviz kurundan kaynaklı zarara uğrayabilirsiniz.
 
