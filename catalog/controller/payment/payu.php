@@ -64,8 +64,9 @@ class ControllerPaymentPayU extends Controller {
 					'ORDER_PRICE' => $price,
 					'ORDER_QTY' => $qty,
 					'ORDER_VAT' => $vat,
+					'ORDER_PRICE_TYPE' => $ptype,
 					'ORDER_SHIPPING' => $amount = $this->currency->convert( $shipp, $order_info['currency_code'], $this->config->get('payu_currency') ), 
-                    'PRICES_CURRENCY' => $this->config->get('payu_currency'),
+                    			'PRICES_CURRENCY' => $this->config->get('payu_currency'),
 					'LANGUAGE' => $this->config->get('payu_language'),
 				  );
 		if ( $this->config->get('payu_backref') != "" ) $forSend['BACK_REF'] = $this->config->get('payu_backref');
